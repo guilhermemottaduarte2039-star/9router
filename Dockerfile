@@ -9,7 +9,6 @@ RUN apk --no-cache upgrade && apk --no-cache add python3 make g++ linux-headers
 
 COPY package.json ./
 RUN npm install
-RUN npm run build
 
 COPY . ./
 ENV NEXT_TELEMETRY_DISABLED=1
