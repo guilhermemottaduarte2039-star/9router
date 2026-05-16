@@ -8,8 +8,8 @@ FROM base AS builder
 RUN apk --no-cache upgrade && apk --no-cache add python3 make g++ linux-headers
 
 COPY package.json ./
-RUN --mount=type=cache,id=9router-npm,target=/root/.npm npm install
-RUN --mount=type=cache,id=9router-cache,target=/root/.cache npm run build
+RUN --mount=type=cache,id=cacheKey-9router-npm,target=/root/.npm npm install
+RUN --mount=type=cache,id=cacheKey-9router-cache,target=/root/.cache npm run build
 
 COPY . ./
 ENV NEXT_TELEMETRY_DISABLED=1
